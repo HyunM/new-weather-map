@@ -1,6 +1,17 @@
 import React from 'react';
+import apiConfig from '../apiKeys'
 
 class WeekContainer extends React.Component {
+
+    
+    componentDidMount = () => {
+        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=92806&APPID=${apiConfig.owmKey}`
+
+        fetch(weatherURL)
+            .then(res => res.json())
+            .then(data => console.log("Data List Loaded", data.list))
+    }
+
     render() {
         return(
             <div>
@@ -10,4 +21,4 @@ class WeekContainer extends React.Component {
     }
 }
 
-export default WeekContainer
+export default WeekContainer;
