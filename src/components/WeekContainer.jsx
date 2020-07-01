@@ -2,7 +2,7 @@ import React from 'react';
 import apiConfig from '../apiKeys'
 import Daycard from './Daycard'
 import DegreeToggle from './DegreeToggle'
-let x = 0;
+
 class WeekContainer extends React.Component {
     state = {
         fullData: [],
@@ -22,7 +22,6 @@ class WeekContainer extends React.Component {
         fetch(weatherURL)
             .then(res => res.json())
             .then(data => {
-                // const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
                 const dailyData = data.list.filter(function (reading) { return reading.dt_txt.includes("18:00:00") });
                 this.setState({
                     fullData: data.list,
@@ -31,9 +30,11 @@ class WeekContainer extends React.Component {
             })
     }
 
+    
 
     formatDayCards = () => {
-        return this.state.dailyData.map((reading, degreeType, index) => <Daycard reading={reading} degreeType={this.state.degreeType} key={x++} />)
+        let key = 0;
+        return this.state.dailyData.map((reading, degreeType) => <Daycard reading={reading} degreeType={this.state.degreeType} key={key++}/>)
     }
 
 
