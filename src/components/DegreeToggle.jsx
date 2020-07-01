@@ -1,29 +1,31 @@
 import React from 'react'
+import "./owfont-master/css/owfont-regular.css"
+import "./owfont-master/css/owfont-regular.min.css"
 
 const DegreeToggle = ({degreeType, updateForecastDegree}) => {
     return (
         <React.Fragment>
             <div className="form-check form-check-inline">
                 <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="degree-type"
                     id="celsius"
                     value="celsius"
                     checked={degreeType === "celsius"}
                     onChange={updateForecastDegree}/>
-                <label class="form-check-label" for="celsius">celsius</label>
+                <label className="form-check-label" htmlFor="celsius">Celsius</label>
             </div>
             <div className="form-check form-check-inline">
                 <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="degree-type"
                     id="fahrenheit"
                     value="fahrenheit"
                     checked={degreeType === "fahrenheit"}
                     onChange={updateForecastDegree}/>
-                <label className="form-check-label" for="fahrenheit">fahrenheit</label>
+                <label className="form-check-label" htmlFor="fahrenheit">Fahrenheit</label>
             </div>
         </React.Fragment>
     )
