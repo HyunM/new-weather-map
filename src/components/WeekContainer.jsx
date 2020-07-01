@@ -30,18 +30,15 @@ class WeekContainer extends React.Component {
             })
     }
 
-    
-
     formatDayCards = () => {
         let key = 0;
         return this.state.dailyData.map((reading, degreeType) => <Daycard reading={reading} degreeType={this.state.degreeType} key={key++}/>)
     }
 
-
     render() {
         return (
             <div className="container" align="center">
-                <h1 className="display-1 jumbotron">5-Day Forecast.</h1>
+                <h1 className="display-1 jumbotron background">5-Day Forecast.</h1>
                 <h5 className="display-5 text-muted">Anaheim,CA US</h5>
                 <DegreeToggle degreeType={this.state.degreeType} updateForecastDegree={this.updateForecastDegree.bind(this)} />
                 <div className="row justify-content-center">
